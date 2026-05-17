@@ -1,87 +1,310 @@
-# Smart-KYC-Risk-Scoring-Engine
+<div align="center">
 
-An AI-powered Know Your Customer (KYC) engine designed to automate and enhance Anti-Money Laundering (AML) compliance. This system scores customers based on real-time AML risk signals, classifies them into distinct risk tiers using a machine learning model, and auto-recommends onboarding decisions. For flagged or high-risk cases, the engine provides explainable reasoning to assist compliance officers in manual review.
+# Smart KYC Risk Scoring Engine
 
-Key Features
-Automated Risk Scoring: Ingests customer data and calculates a baseline risk score using predefined AML signals and historical data.
+### AI-Powered AML Risk Classification & Explainable Customer Onboarding
 
-ML-Driven Tier Classification: Utilizes a trained machine learning classification model to categorize customers into distinct tiers (e.g., Low, Medium, High Risk).
+An intelligent KYC compliance system that detects AML/fraud risk signals, classifies customers into risk categories, and generates explainable onboarding recommendations.
 
-Smart Onboarding Recommendations: Automatically approves low-risk profiles, queues medium-risk profiles for standard review, and flags high-risk profiles for enhanced due diligence (EDD).
+Built for hackathon innovation in **FinTech + AI + Compliance**.
 
-Explainable AI (XAI): Generates transparent, human-readable reasoning for why a specific customer was flagged, highlighting the exact data points that contributed to the high risk score.
+![Python](https://img.shields.io/badge/Python-3.x-blue)
+![Scikit-Learn](https://img.shields.io/badge/ML-ScikitLearn-orange)
+![Status](https://img.shields.io/badge/Status-Completed-green)
+![License](https://img.shields.io/badge/License-MIT-red)
 
-System Architecture / Workflow
-Data Ingestion: Customer profile data, transaction history, and external watchlists are fed into the system.
+</div>
 
-Feature Engineering: The system extracts relevant AML signals (e.g., geographic risk, PEP status, transaction volume anomalies).
+---
 
-Risk Inference: The ML model evaluates the features and outputs a probability score.
+# Problem Statement
 
-Decision Engine: The score is mapped to a risk tier and an actionable recommendation is generated.
+Traditional KYC verification systems are often:
 
-Explainability Module: For non-automated decisions, the system breaks down feature importance (e.g., using SHAP or LIME) for the compliance team.
+- Manual and time-consuming
+- Hard to scale
+- Inconsistent across analysts
+- Lack explainability
+- Slow in fraud detection
 
-Tech Stack (Example - Update to match your repo)
-Language: Python 3.9+
+This project solves that using **Machine Learning + Explainable AI** to automate customer risk scoring.
 
-Machine Learning: Scikit-Learn / XGBoost / Pandas
+---
 
-Explainability: SHAP / LIME
+# Key Features
 
-API Framework: FastAPI / Flask
+✅ AML risk signal detection  
+✅ Fraud pattern recognition  
+✅ Automated risk classification  
+✅ Explainable AI reasoning  
+✅ Intelligent onboarding recommendations  
+✅ Compliance-driven decision making  
 
-Database: PostgreSQL / MongoDB
+---
 
-Installation
-1. Clone the repository
+# System Architecture
 
-Bash
-git clone https://github.com/YourUsername/smart-kyc-engine.git
-cd smart-kyc-engine
-2. Create a virtual environment
+<p align="center">
+  <img src="assets/architecture.png" width="1000">
+</p>
 
-Bash
-python -m venv venv
-source venv/bin/activate  # On Windows use `venv\Scripts\activate`
-3. Install dependencies
+The pipeline follows:
 
-Bash
+```text
+Customer Data
+    ↓
+Data Preprocessing
+    ↓
+Feature Engineering
+    ↓
+Risk Signal Extraction
+    ↓
+ML Risk Scoring Engine
+    ↓
+Explainability Layer
+    ↓
+Decision Recommendation
+```
+
+---
+
+# Tech Stack
+
+## Programming Language
+
+- Python
+
+## Libraries
+
+- Pandas
+- NumPy
+- Scikit-learn
+- Matplotlib
+- Seaborn
+- XGBoost
+- SHAP
+
+## Development Tools
+
+- Jupyter Notebook
+- Git
+- GitHub
+
+---
+
+# Risk Features Used
+
+The engine analyzes:
+
+| Feature | Description |
+|---------|-------------|
+| Age | Customer age |
+| Occupation Risk | Profession risk level |
+| Country Risk | Geography-based compliance score |
+| Transaction Volume | Financial activity |
+| PEP Status | Politically exposed person |
+| Source of Funds | Income legitimacy |
+| Sanctions Exposure | Compliance violations |
+| Behavioral Signals | Fraud indicators |
+
+---
+
+# Machine Learning Pipeline
+
+## 1. Data Preprocessing
+
+- Missing value handling
+- Label encoding
+- Feature normalization
+- Outlier treatment
+
+## 2. Feature Engineering
+
+- AML signals
+- Fraud indicators
+- Derived compliance metrics
+
+## 3. Model Training
+
+Models explored:
+
+- Logistic Regression
+- Random Forest
+- Gradient Boosting
+- XGBoost
+
+## 4. Evaluation
+
+Metrics:
+
+- Accuracy
+- Precision
+- Recall
+- F1 Score
+
+---
+
+# Model Performance
+
+<p align="center">
+  <img src="assets/confusion_matrix.png" width="750">
+</p>
+
+The confusion matrix demonstrates strong classification across:
+
+- Low Risk
+- Medium Risk
+- High Risk
+
+---
+
+# Feature Importance Analysis
+
+<p align="center">
+  <img src="assets/feature_importance.png" width="850">
+</p>
+
+Key drivers influencing risk decisions:
+
+- Transaction Volume
+- Country Risk
+- PEP Status
+- Source of Funds
+- Occupation Risk
+
+---
+
+# Explainable AI Output
+
+Instead of only predicting a score, the engine explains *why*.
+
+Example:
+
+```json
+{
+  "customer_id": 103,
+  "risk_score": 91,
+  "risk_level": "High",
+  "reasons": [
+    "PEP detected",
+    "High-risk jurisdiction",
+    "Abnormal transaction activity"
+  ],
+  "recommendation": "Enhanced Due Diligence"
+}
+```
+
+---
+
+# Sample Predictions
+
+| Customer ID | Risk Score | Risk Level | Recommendation |
+|------------|------------|------------|----------------|
+| 101 | 18 | Low | Approve |
+| 102 | 62 | Medium | Manual Review |
+| 103 | 91 | High | Enhanced Due Diligence |
+
+---
+
+# Project Structure
+
+```bash
+Smart-KYC-Risk-Scoring-Engine/
+│
+├── assets/
+│   ├── architecture.png
+│   ├── confusion_matrix.png
+│   ├── feature_importance.png
+│
+├── data/
+├── notebooks/
+├── models/
+├── src/
+├── outputs/
+├── requirements.txt
+└── README.md
+```
+
+---
+
+# Installation
+
+Clone repository:
+
+```bash
+git clone https://github.com/quiet-codes/Smart-KYC-Risk-Scoring-Engine.git
+```
+
+Move into directory:
+
+```bash
+cd Smart-KYC-Risk-Scoring-Engine
+```
+
+Install dependencies:
+
+```bash
 pip install -r requirements.txt
-Usage
-1. Running the API Server
-Start the backend server to begin accepting KYC scoring requests.
+```
 
-Bash
-uvicorn main:app --reload
-2. Example API Request
-Send a POST request with customer data to receive a risk score and onboarding recommendation.
+---
 
-JSON
-POST /api/v1/score
-{
-  "customer_id": "12345",
-  "country_of_origin": "US",
-  "pep_status": false,
-  "expected_monthly_volume": 50000
-}
-3. Example API Response
+# Usage
 
-JSON
-{
-  "customer_id": "12345",
-  "risk_score": 82.5,
-  "risk_tier": "High",
-  "recommendation": "Flag for Manual Review",
-  "explainability": {
-    "top_risk_factors": [
-      "expected_monthly_volume exceeds standard threshold",
-      "associated_entity flagged on internal watchlist"
-    ]
-  }
-}
-Contributing
-Contributions are welcome. Please read CONTRIBUTING.md for details on our code of conduct, and the process for submitting pull requests to us.
+Launch notebook:
 
-License
-This project is licensed under the MIT License - see the LICENSE file for details.
+```bash
+jupyter notebook
+```
+
+or run:
+
+```bash
+python main.py
+```
+
+---
+
+# Business Impact
+
+This system helps financial institutions:
+
+- Reduce fraud exposure
+- Improve regulatory compliance
+- Speed up onboarding
+- Reduce manual verification cost
+- Improve explainability
+
+---
+
+# Future Improvements
+
+- Real-time API deployment
+- Streamlit dashboard
+- Live sanction list integration
+- Graph-based fraud detection
+- Deep learning anomaly detection
+
+---
+
+# Team
+
+Built during Hackathon by:
+
+## Abhishek Kumar
+
+GitHub:
+
+https://github.com/quiet-codes
+
+---
+
+# Acknowledgements
+
+Special thanks to the hackathon organizers for the problem statement and challenge.
+
+---
+
+# License
+
+MIT License
