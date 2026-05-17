@@ -291,7 +291,7 @@ This system helps financial institutions:
 
 Built during Hackathon by:
 
-## Abhishek Kumar
+## Ashish Kumar
 
 GitHub:
 
